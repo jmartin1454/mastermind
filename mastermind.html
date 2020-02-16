@@ -35,7 +35,9 @@ function makeid(length) {
 }
 
 code=makeid(n)
-document.getElementById("messages").innerHTML=code;
+
+// uncomment the following line for cheat mode
+// document.getElementById("messages").innerHTML=code;
 
 document.getElementById("myText").addEventListener("keyup", function(event) {
     event.preventDefault();
