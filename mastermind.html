@@ -1,0 +1,92 @@
+    <!DOCTYPE html>
+    <html>
+    <body>
+
+    <h1>Mastermind</h1>
+  
+Your guess: <input type="text" id="myText" value="">
+    <button id="try" onclick="myFunction()">Try it</button>
+
+    <table>
+    <thead>
+    <tr>
+    <th style="width:150px;" align="left">Guess</th>
+    <th style="width:150px;" align="left">Result</th>
+    </tr>
+    </thead>
+    <tbody id="data"></tbody>
+    </table>
+
+
+    <p style="color:red" id="messages"></p>
+    
+    <script>
+
+n=12
+
+function makeid(length) {
+    var result           = '';
+    var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+    var charactersLength = characters.length;
+    for ( var i = 0; i < length; i++ ) {
+	result += characters.charAt(Math.floor(Math.random() * charactersLength));
+    }
+    return result;
+}
+
+code=makeid(n)
+document.getElementById("messages").innerHTML=code;
+
+document.getElementById("myText").addEventListener("keyup", function(event) {
+    event.preventDefault();
+    if (event.keyCode === 13) {
+        document.getElementById("try").click();
+    }
+});
+
+function myFunction() {
+    entry=document.getElementById("myText").value;
+
+    if(entry.length!=12){
+	document.getElementById("messages").innerHTML="Error:  Your entry must be 12 characters in length";
+        return false;
+    } else {
+        document.getElementById("messages").innerHTML="";
+    }
+
+    b=""
+    efix=entry
+    cfix=code
+    for (var i = 0; i < entry.length; i++) {
+	if(entry.charAt(i)==code.charAt(i)) {
+	    b+="b"
+	    efix=efix.substr(0,i)+"."+efix.substr(i+1)
+	    cfix=cfix.substr(0,i)+"."+cfix.substr(i+1)
+	}
+    }
+    for (var i=0;i<entry.length;i++) {
+	for (var j=0;j<code.length;j++) {
+	    if(efix.charAt(i)==cfix.charAt(j)&&efix.charAt(i)!=".") {
+		b+="w"
+		efix=efix.substr(0,i)+"."+efix.substr(i+1)
+		cfix=cfix.substr(0,j)+"."+cfix.substr(j+1)
+	    }
+	}
+    }
+
+    document.getElementById("data").innerHTML+="<tr><td>"+entry+"</td><td>"+b+"</td></tr>";
+
+    // uncomment the following line to cheat/test
+    // document.getElementById("messages").innerHTML=code+" "+cfix+" "+efix;
+
+    if(b=="bbbbbbbbbbbb") {
+	alert("You win!")
+	document.getElementById("messages").innerHTML="You win!  Reload the page to play again.";
+    }
+    
+    return true;	  
+}
+</script>
+
+</body>
+    </html>
