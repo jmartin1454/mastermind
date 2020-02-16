@@ -6,6 +6,6 @@ Rules:
 
 Run:
 
-Go to:
+Go to:  https://htmlpreview.github.io/?https://github.com/jmartin1454/mastermind/blob/master/mastermind.html
 
-https://htmlpreview.github.io/?https://github.com/jmartin1454/mastermind/blob/master/mastermind.html
+Version with cheats:  https://htmlpreview.github.io/?https://github.com/jmartin1454/mastermind/blob/master/mastermind_cheats.html
