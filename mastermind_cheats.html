@@ -6,6 +6,7 @@
   
 Your guess: <input type="text" id="myText" value="">
     <button id="try" onclick="myFunction()">Try it</button>
+    <button id="clear" onclick="clearFunction()">Clear</button>
 
     <table>
     <thead>
@@ -48,6 +49,10 @@ document.getElementById("myText").addEventListener("keyup", function(event) {
         document.getElementById("try").click();
     }
 });
+
+function clearFunction() {
+    document.getElementById("myText").value="";
+}
 
 function myFunction() {
     entry=document.getElementById("myText").value;
