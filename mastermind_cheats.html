@@ -10,6 +10,7 @@ Your guess: <input type="text" id="myText" value="">
     <table>
     <thead>
     <tr>
+    <th style="width:20px;" align="left">#</th>
     <th style="width:150px;" align="left">Guess</th>
     <th style="width:150px;" align="left">Result</th>
     </tr>
@@ -23,6 +24,8 @@ Your guess: <input type="text" id="myText" value="">
     <script>
 
 n=12
+
+numguess=0
 
 function makeid(length) {
     var result           = '';
@@ -56,6 +59,7 @@ function myFunction() {
         document.getElementById("messages").innerHTML="";
     }
 
+    numguess++
     b=""
     efix=entry
     cfix=code
@@ -76,7 +80,7 @@ function myFunction() {
 	}
     }
 
-    document.getElementById("data").innerHTML+="<tr><td>"+entry+"</td><td>"+b+"</td></tr>";
+    document.getElementById("data").innerHTML+="<tr><td>"+numguess+"</td><td>"+entry+"</td><td>"+b+"</td></tr>";
 
     // uncomment the following line to cheat/test
     document.getElementById("messages").innerHTML=code+" "+cfix+" "+efix;

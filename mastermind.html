@@ -10,6 +10,7 @@ Your guess: <input type="text" id="myText" value="">
     <table>
     <thead>
     <tr>
+    <th style="width:20px;" align="left">#</th>
     <th style="width:150px;" align="left">Guess</th>
     <th style="width:150px;" align="left">Result</th>
     </tr>
@@ -24,6 +25,8 @@ Your guess: <input type="text" id="myText" value="">
 
 n=12
 
+numguess=0
+
 function makeid(length) {
     var result           = '';
     var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
@@ -37,7 +40,7 @@ function makeid(length) {
 code=makeid(n)
 
 // uncomment the following line for cheat mode
-// document.getElementById("messages").innerHTML=code;
+//document.getElementById("messages").innerHTML=code;
 
 document.getElementById("myText").addEventListener("keyup", function(event) {
     event.preventDefault();
@@ -56,6 +59,7 @@ function myFunction() {
         document.getElementById("messages").innerHTML="";
     }
 
+    numguess++
     b=""
     efix=entry
     cfix=code
@@ -76,10 +80,10 @@ function myFunction() {
 	}
     }
 
-    document.getElementById("data").innerHTML+="<tr><td>"+entry+"</td><td>"+b+"</td></tr>";
+    document.getElementById("data").innerHTML+="<tr><td>"+numguess+"</td><td>"+entry+"</td><td>"+b+"</td></tr>";
 
     // uncomment the following line to cheat/test
-    // document.getElementById("messages").innerHTML=code+" "+cfix+" "+efix;
+    //document.getElementById("messages").innerHTML=code+" "+cfix+" "+efix;
 
     if(b=="bbbbbbbbbbbb") {
 	alert("You win!")
